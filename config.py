@@ -47,13 +47,13 @@ def create_argument_parser() -> argparse.ArgumentParser:
     sled_group.add_argument('--op_T', type=int, default=12)
 
     # DCLED parameters
-    dcsled_group = parser.add_argument_group('DCLED Configuration')
-    dcsled_group.add_argument('--entropy_weight', type=float, default=0.08)
-    dcsled_group.add_argument('--entropy_sharpening', type=float, default=1.2)
-    dcsled_group.add_argument('--confidence_boost', type=float, default=1.8)
-    dcsled_group.add_argument('--signal_strength', type=float, default=0.85)
-    dcsled_group.add_argument('--js_divergence_weight', type=float, default=0.3)
-    dcsled_group.add_argument('--contrastive_strength', type=float, default=0.25)
+    dcled_group = parser.add_argument_group('DCLED Configuration')
+    dcled_group.add_argument('--entropy_weight', type=float, default=0.08)
+    dcled_group.add_argument('--entropy_sharpening', type=float, default=1.2)
+    dcled_group.add_argument('--confidence_boost', type=float, default=1.8)
+    dcled_group.add_argument('--signal_strength', type=float, default=0.85)
+    dcled_group.add_argument('--js_divergence_weight', type=float, default=0.3)
+    dcled_group.add_argument('--contrastive_strength', type=float, default=0.25)
 
     # Layer configuration
     layer_group = parser.add_argument_group('Layer Configuration')
@@ -213,4 +213,5 @@ class LLaMAQAStoppingCriteria(StoppingCriteria):
             if len(stop_word_ids) > 0 and input_ids.shape[-1] >= len(stop_word_ids):
                 if input_ids[0, -len(stop_word_ids):].tolist() == stop_word_ids:
                     return True
+
         return False
