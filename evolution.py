@@ -7,7 +7,7 @@ from config import get_model_adaptive_config
 from logging_utils import get_logger
 logger = get_logger()
 
-class EnhancedSLEDEvolutionEngine:
+class EnhancedDCLEDEvolutionEngine:
  
     def __init__(self, config: Dict, device: torch.device):
         self.config = config
@@ -204,4 +204,5 @@ class DynamicLayerSignalComputer:
             signal = torch.relu(diff)
      
         signal_sum = signal.sum() + EPS
+
         return signal / signal_sum
