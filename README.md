@@ -22,7 +22,7 @@ Current version: **1.0.0** (January 2026)
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/TahirSher
+git clone https://github.com/DCLED Team
 DCLED-Dynamic-Contrastive-Layer-Evolution-Decoding-for-improved-Factuality-Understanding-in-LLMs.git
 cd DCLED-FRAMEWORK
 
