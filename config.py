@@ -18,6 +18,8 @@ def create_argument_parser() -> argparse.ArgumentParser:
 
     # Model Configuration
     model_group = parser.add_argument_group('Model Configuration')
+    # model_group.add_argument('--model_name', type=str, default='meta-llama/Llama-3.2-1B')
+    # model_group.add_argument('--model_name', type=str, default='meta-llama/Llama-3.2-3B')
     model_group.add_argument('--model_name', type=str, default='meta-llama/Llama-3.1-8B')
     model_group.add_argument('--num_gpus', type=str, default='1')
     model_group.add_argument('--max_gpu_memory', type=int, default=80)
@@ -215,3 +217,4 @@ class LLaMAQAStoppingCriteria(StoppingCriteria):
                     return True
 
         return False
+
