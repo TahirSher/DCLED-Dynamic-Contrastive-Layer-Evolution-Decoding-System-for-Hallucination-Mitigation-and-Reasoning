@@ -2,7 +2,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from typing import List, Dict, Optional, Tuple, Any
 from utils import stable_softmax, stable_log_softmax, compute_entropy, js_divergence, compute_layer_confidence
-from evolution import EnhancedLEDEvolutionEngine, JSLayerSelector, DynamicLayerSignalComputer
+from evolution import EnhancedDCLEDEvolutionEngine, JSLayerSelector, DynamicLayerSignalComputer
 from config import get_model_adaptive_config, get_model_size_category
 from logging_utils import get_logger
 import math
@@ -433,3 +433,4 @@ class UnifiedDCLED:
             else:
 
                 raise ValueError(f"Unknown mode: {mode}")
+
