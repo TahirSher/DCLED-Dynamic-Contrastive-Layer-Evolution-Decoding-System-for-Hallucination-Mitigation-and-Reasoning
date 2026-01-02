@@ -2,7 +2,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from typing import List, Dict, Optional, Tuple, Any
 from utils import stable_softmax, stable_log_softmax, compute_entropy, js_divergence, compute_layer_confidence
-from evolution import EnhancedSLEDEvolutionEngine, JSLayerSelector, DynamicLayerSignalComputer
+from evolution import EnhancedLEDEvolutionEngine, JSLayerSelector, DynamicLayerSignalComputer
 from config import get_model_adaptive_config, get_model_size_category
 from logging_utils import get_logger
 import math
@@ -21,7 +21,7 @@ LOG_EPS = 1e-12
 PROB_CLAMP_MIN = 1e-8
 PROB_CLAMP_MAX = 1.0 - 1e-8
 LOGIT_CLIP_MAX = 88.0
-class UnifiedDCSLED:
+class UnifiedDCLED:
  
     def __init__(self, model_name: str, device: str = 'cuda',
                  num_gpus: str = '1', max_gpu_memory: int = 80):
@@ -431,4 +431,5 @@ class UnifiedDCSLED:
                 return log_probs, None
          
             else:
+
                 raise ValueError(f"Unknown mode: {mode}")
