@@ -9,7 +9,7 @@ logger = get_logger()
 from data_loaders import load_truthfulqa_dataset, load_new_benchmarks, load_sealqa_dataset
 from evaluation import evaluate_truthfulqa, evaluate_new_benchmark, evaluate_sealqa            
 from utils import get_device, clear_cuda_memory
-from model import UnifiedDCSLED               
+from model import UnifiedDCLED               
 from config import create_argument_parser
 
 logging.basicConfig(
@@ -28,7 +28,7 @@ def main():
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(args.seed)
 
-    llm = UnifiedDCSLED(
+    llm = UnifiedDCLED(
         args.model_name,
         device=args.device,
         num_gpus=args.num_gpus,
@@ -114,4 +114,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
